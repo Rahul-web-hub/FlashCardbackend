@@ -10,7 +10,13 @@ const app = express();
 
 // Enable CORS for all routes (or specify your frontend's URL)
 app.use(cors({
-  origin: 'https://flash-card-dusky.vercel.app/'
+  origin: (origin, callback) => {
+    if (!origin || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
 }));
 
 // Parse JSON requests
