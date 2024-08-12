@@ -10,7 +10,7 @@ const app = express();
 
 // Enable CORS for all routes (or specify your frontend's URL)
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: 'https://flash-card-dusky.vercel.app/'
 }));
 
 // Parse JSON requests
